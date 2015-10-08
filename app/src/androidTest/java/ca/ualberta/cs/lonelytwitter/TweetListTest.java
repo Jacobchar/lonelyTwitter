@@ -9,7 +9,9 @@ import java.util.ArrayList;
 /**
  * Created by charlebo on 9/30/15.
  */
-public class TweetListTest extends ActivityInstrumentationTestCase2 {
+public class TweetListTest extends ActivityInstrumentationTestCase2 implements MyObserver{
+
+    private boolean wasNotified = false;
 
     public TweetListTest(){
         super(LonelyTwitterActivity.class);
@@ -77,4 +79,15 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
                 tweet1.equals(returnedTweets.get(1))&&tweet2.equals(returnedTweets.get(2))));
     }
 
+    public void testTweetListChanged() {
+        TweetList tweetList = new TweetList();
+        Tweet tweet = new NormalTweet("Tweet 1");
+        tweetList.addObserver(this);
+        assertFalse(wasNotified);
+        tweetList.addTweet(tweet);
+        assertTrue(wasNotified);
+    }
+    public void myNotify() {
+
+    }
 }
