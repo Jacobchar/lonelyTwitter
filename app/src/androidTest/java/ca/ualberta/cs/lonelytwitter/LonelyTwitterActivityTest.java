@@ -35,7 +35,7 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         // reset the app to a known state
         activity.getTweets().clear();
 
-        //add a tweet using the UI
+        // add a tweet using the UI
         bodyText = activity.getBodyText();
         activity.runOnUiThread(new Runnable() {
             public void run() {
@@ -85,14 +85,19 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         getInstrumentation().removeMonitor(receiverActivityMonitor);
 
         // test that the editor starts up with the right tweet in it to edit
+        
 
         // test that we can edit that tweet
 
+
         // test that we can push some kind of save buton for that tweet
+
 
         // the new modified tweet text was actually saved
 
+
         // the new modified tweet text is displayed on the other acivity
+
 
         // clean up our activities at th end of our test
         receiverActivity.finish();
